@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
-  has_many :comments, dependent: :destroy
-  validates :title, presence: true, length: { minimum: 5 }
+  belongs_to :user
+  VALID_TITLE = /\A[A-Z][a-zA-Z0-9]+\z/
+  validates :title, presence: true, length: { minimum: 5 }, format: { with: VALID_TITLE , message: "Title must start with block letter "}
 end

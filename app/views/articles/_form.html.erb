@@ -1,9 +1,8 @@
-
-<%= form_for @article do |f| %>
+<%= form_for([@article]) do |f| %>
 <% if @article.errors.any? %>
-  <div class = "error_box">
-    <h2><%= pluralize(@article.errors.count, "error") %>
-    prohibited this article from saving</h2>
+  <div class = "alert alert-warning">
+    <h3><%= pluralize(@article.errors.count, "Error") %>
+    prohibited this article from saving</h3>
     <ul>
       <% @article.errors.full_messages.each do |msg| %>
       <li>
@@ -13,7 +12,6 @@
     </ul>
   </div>
 <% end %>
-
 <table >
   <tr>
     <td><%= f.label :title %></td>
