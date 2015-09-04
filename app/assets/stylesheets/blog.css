@@ -1,0 +1,9 @@
+table input{
+  margin: 15px;
+}
+table{
+  width:auto;
+}
+#comment_body{
+  width: 800px;
+}

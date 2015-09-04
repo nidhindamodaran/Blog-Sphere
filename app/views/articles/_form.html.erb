@@ -17,14 +17,14 @@
 <table >
   <tr>
     <td><%= f.label :title %></td>
-    <td><%= f.text_field :title %></td>
+    <td><%= f.text_field :title, class: "form-control" %></td>
   </tr>
   <tr>
     <td><%= f.label :text %></td>
-    <td><%= f.text_area :text %></td>
+    <td><%= f.text_area :text, class: "form-control" %></td>
   </tr>
   <tr>
-    <td><%= f.submit :submit.capitalize %></td>
+    <td><%= f.submit :submit.capitalize, :class => "btn btn-primary" %></td>
   </tr>
 </table>
 <% end %>

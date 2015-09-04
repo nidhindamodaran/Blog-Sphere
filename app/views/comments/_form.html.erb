@@ -1,0 +1,21 @@
+<%= form_for([@article, @article.comments.build]) do |f| %>
+<table>
+  <tr>
+    <td><%= f.label :commenter %></td>
+    <td><%= f.text_field :commenter ,:class => "form-control"%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :body %></td>
+    <td><%= f.text_area :body ,:class => "form-control" %></td>
+
+  </tr>
+</table>
+
+<p>
+  <br />
+
+</p>
+<p>
+  <%= f.submit :class => "btn btn-primary"%>
+</p>
+<% end %>
