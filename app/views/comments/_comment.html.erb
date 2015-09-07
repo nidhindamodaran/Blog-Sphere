@@ -19,6 +19,14 @@
       <% end %>
 
     </td>
+    <td>
+      <% if admin? %>
+      <%= link_to 'delete', [comment.article, comment],
+                method: :delete, class: 'btn btn-danger btn-xs ' ,
+                data: { confirm: 'Are you sure?' } %>
+
+      <% end %>
+    </td>
 
   </tr>
 
