@@ -19,6 +19,11 @@
               <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, article_path(article), method: :delete, data: {confirm: "Are you sure? "} %>
           <% end %>
       </td>
+      <td>
+        <% if admin? %>
+          <%= link_to '<i class="glyphicon glyphicon-user"></i>'.html_safe, user_path(article.user_id) %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 
