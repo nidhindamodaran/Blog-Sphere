@@ -1,17 +1,17 @@
-<table class= "table table-hover">
+<table class= "table table-hover tbl-list">
   <% @articles.each do|article| %>
     <tr>
       <td>
-         <%= link_to article.title, article_path(article) %>
+         <%= link_to truncate(article.title), article_path(article) %>
       </td>
       <td>
         <% if current_user.id == article.user_id %>
-          <%= link_to "Edit", edit_article_path(article) %>
+          <%= link_to  '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_article_path(article)  %>
         <% end %>
       </td>
       <td>
         <% if current_user.id == article.user_id %>
-          <%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure? "} %>
+          <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, article_path(article), method: :delete, data: {confirm: "Are you sure? "} %>
         <% end %>
       </td>
     </tr>

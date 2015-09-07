@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+
   def show
     @user = User.find(current_user.id)
     #@article = @user.articles.find(params[:id])

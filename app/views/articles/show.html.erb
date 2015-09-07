@@ -1,5 +1,5 @@
 <p>
-  <h1><%= @article.title %></h1>
+  <h1><%= truncate(@article.title) %></h1>
 </p>
 <div class = "well">
   <%= @article.text %>
