@@ -1,0 +1,23 @@
+<li class="list-group-item">
+<table>
+  <tr>
+    <td><span class="glyphicon glyphicon-user"></span></td>
+    <td><%=  link_to comment.commenter, user_path(@user) %></td>
+  </tr>
+  <tr>
+    <td><strong>Comment:&nbsp;&nbsp;</strong></td>
+    <td><%= comment.body %></td>
+    <td>
+      <% if comment.commenter.to_s ==  current_user.email.to_s then %>
+      <%= link_to 'delete', [comment.article, comment],
+                method: :delete, class: 'btn btn-danger btn-xs ' , 
+                data: { confirm: 'Are you sure?' } %>
+      <% end %>
+
+    </td>
+
+  </tr>
+
+</table>
+
+</li>
