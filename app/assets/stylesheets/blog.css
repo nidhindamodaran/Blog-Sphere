@@ -1,0 +1,15 @@
+.table th, .table td {
+     border-top: none !important;
+ }
+
+textarea.form-control {
+    height: 500px;
+    width: 650px;
+}
+textarea.form-control {
+    height: 600px;
+    margin: 10px;
+}
+.form-control{
+  margin: 10px;
+}

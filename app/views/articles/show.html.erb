@@ -1,12 +1,13 @@
 <p>
   <h1><%= @article.title %></h1>
 </p>
-<h2>Article</h2>  <br />
+<h2><u>Article</u></h2>  <br />
 <div class = "well">
   <%= @article.text %>
 </div>
+<h2><u>Comments </u></h2>
 <div class = "well">
-  <h2>Comments: </h2>
+
   <ul class="list-group">
       <%= render @article.comments %>
   </ul>

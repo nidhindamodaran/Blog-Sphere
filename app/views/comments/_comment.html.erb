@@ -2,7 +2,11 @@
 <table>
   <tr>
     <td><span class="glyphicon glyphicon-user"></span></td>
-    <td><%=  link_to comment.commenter, user_path(@user) %></td>
+    <% if comment.commenter  == current_user.email %>
+    <td><%=  link_to comment.commenter, user_path(current_user.id)%></td>
+    <% else %>
+     <td><%=  link_to comment.commenter, user_path(@article.user_id)%></td>
+    <% end %>
   </tr>
   <tr>
     <td><strong>Comment:&nbsp;&nbsp;</strong></td>
@@ -10,7 +14,7 @@
     <td>
       <% if comment.commenter.to_s ==  current_user.email.to_s then %>
       <%= link_to 'delete', [comment.article, comment],
-                method: :delete, class: 'btn btn-danger btn-xs ' , 
+                method: :delete, class: 'btn btn-danger btn-xs ' ,
                 data: { confirm: 'Are you sure?' } %>
       <% end %>
 
