@@ -1,8 +1,7 @@
 <%= form_for ([@article, @article.comments.build]) do |f| %>
 <table >
   <tr>
-    <td><%= f.label :body %></td>
-    <td><%= f.text_area :body, class: "form-control", :placeholder => "Comments" %></td>
+    <td><%= f.text_area :body, class: "form-control", :placeholder => "Add comment" %></td>
     <td><%= f.submit :submit.capitalize, :class => "btn btn-primary" %></td>
   </tr>
 

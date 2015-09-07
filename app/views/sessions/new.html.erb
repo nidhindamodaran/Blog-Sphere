@@ -2,17 +2,17 @@
 
 <%= form_tag sessions_path do %>
   <% if @error_login %>
-    <div class="alert alert-warning">
-      <h2>Sign Up Error </h2>
+    <div class="alert alert-danger">
+      <h2>SignUp error </h2>
     </div
   <% end %>
   <p>
     <%= label_tag :email %><br />
-    <%= text_field_tag :email, params[:email] %>
+    <%= text_field_tag :email, params[:email], :class => "form-control", :placeholder => "E-Mail" %>
   </p>
   <p>
     <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
+    <%= password_field_tag :password, class: "form-control"%>
   </p>
-  <p class="button"><%= submit_tag "Log in" %></p>
+  <p>&nbsp;&nbsp;<%= submit_tag "Log in", class: "btn btn-success" %></p>
 <% end %>
