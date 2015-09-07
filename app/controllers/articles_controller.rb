@@ -1,18 +1,30 @@
 class ArticlesController < ApplicationController
 
   def show
-    @user = User.find(current_user.id)
-    #@article = @user.articles.find(params[:id])
-    @article = Article.find(params[:id])
+    if current_user
+      @user = User.find(current_user.id)
+      #@article = @user.articles.find(params[:id])
+      @article = Article.find(params[:id])
+    else
+      redirect_to log_in_path
+    end
   end
   def new
-    @user = User.find(current_user.id)
-    @article = @user.articles.new
+    if current_user
+      @user = User.find(current_user.id)
+      @article = @user.articles.new
+    else
+      redirect_to log_in_path
+    end
   end
 
   def edit
-    @user = User.find(current_user.id)
-    @article = @user.articles.find(params[:id])
+    if current_user
+      @user = User.find(current_user.id)
+      @article = @user.articles.find(params[:id])
+    else
+      redirect_to log_in_path
+    end
   end
 
   def create
@@ -27,21 +39,29 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @user = User.find(current_user.id)
-    @article = @user.articles.find(params[:id])
-    if @article.update(article_params)
-      redirect_to @article
+    if current_user
+      @user = User.find(current_user.id)
+      @article = @user.articles.find(params[:id])
+      if @article.update(article_params)
+        redirect_to @article
+      else
+        render "edit"
+      end
     else
-      render "edit"
+      redirect_to log_in_path
     end
   end
 
   def destroy
-    @user = User.find(current_user.id)
-    @article = @user.articles.find(params[:id])
-    @article.destroy
+    if current_user
+      @user = User.find(current_user.id)
+      @article = @user.articles.find(params[:id])
+      @article.destroy
 
-    redirect_to root_path
+      redirect_to root_path
+    else
+      redirect_to log_in_path
+    end
 
   end
 
