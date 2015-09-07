@@ -18,7 +18,7 @@
 
         <% if current_user %>
 
-          <li><%= link_to current_user.email, user_path(@user) %></a></li>
+          <li><%= link_to current_user.email, user_path(current_user) %></a></li>
 
           <li><%= link_to "Logout", log_out_path %></a></li>
         <% else %>

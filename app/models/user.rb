@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
   before_save :encrypt_password
 
+
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
   validates :email, presence:true, uniqueness:true, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i, message: "entered is not correct "}
