@@ -1,22 +1,23 @@
 class ArticlesController < ApplicationController
   def show
-    @user = User.find(current_user)
-    @article = @user.articles.find(params[:id])
+    @user = User.find(current_user.id)
+    #@article = @user.articles.find(params[:id])
+    @article = Article.find(params[:id])
   end
   def new
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
     @article = @user.articles.new
   end
 
   def edit
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
     @article = @user.articles.find(params[:id])
   end
 
   def create
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
     @article = @user.articles.new(article_params)
-    @article.user_id = current_user
+    @article.user_id = current_user.id
     if @article.save
       redirect_to @article
     else
@@ -25,7 +26,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
     @article = @user.articles.find(params[:id])
     if @article.update(article_params)
       redirect_to @article
@@ -35,7 +36,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
     @article = @user.articles.find(params[:id])
     @article.destroy
 
