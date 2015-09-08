@@ -1,18 +1,20 @@
-<h1>Log in</h1>
-
-<%= form_tag sessions_path do %>
-  <% if @error_login %>
-    <div class="alert alert-danger">
-      <h2>SignUp error </h2>
-    </div
+<div class = "col-sm-6 col-sm-offset-4">
+  <div class="login">
+  <%= form_tag sessions_path do %>
+    <% if @error_login %>
+      <div class="alert alert-danger">
+        <h2>Signin error </h2>
+      </div
+    <% end %>
+    <p>
+      <%= label_tag :email %><br />
+      <%= text_field_tag :email, params[:email], :class => "form-control", :placeholder => "E-Mail" %>
+    </p>
+    <p>
+      <%= label_tag :password %><br />
+      <%= password_field_tag :password, class: "form-control"%>
+    </p>
+    <p>&nbsp;&nbsp;<%= submit_tag "Log in", class: "btn btn-success" %></p>
   <% end %>
-  <p>
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email, params[:email], :class => "form-control", :placeholder => "E-Mail" %>
-  </p>
-  <p>
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password, class: "form-control"%>
-  </p>
-  <p>&nbsp;&nbsp;<%= submit_tag "Log in", class: "btn btn-success" %></p>
-<% end %>
+  </div>
+</div>

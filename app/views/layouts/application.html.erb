@@ -12,17 +12,18 @@
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
-            <%= link_to "Blog Sphere", root_path ,class: "navbar-brand"%>
+            <%= link_to '<i class="glyphicon glyphicon-globe"></i> Blog Sphere'.html_safe,root_path, :class => "navbar-brand" %>
           </div>
           <ul class="nav navbar-nav navbar-right">
 
         <% if current_user %>
 
           <li><%= link_to current_user.email, user_path(current_user) %></a></li>
+          <li><%= link_to '<i class="glyphicon glyphicon-log-out"></i> Logout'.html_safe, log_out_path %></li>
 
-          <li><%= link_to "Logout", log_out_path %></a></li>
         <% else %>
-          <li><%= link_to "SignUp", new_user_path %></li>
+          <li><%= link_to '<i class="glyphicon glyphicon-log-in"></i> Login'.html_safe, log_in_path %></li>
+          <li><%= link_to '<i class="glyphicon glyphicon-user"></i> Login'.html_safe, new_user_path %></li>
         <% end %>
 
       </ul>

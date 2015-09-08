@@ -2,6 +2,9 @@
   <% @articles.each do|article| %>
     <tr>
       <td>
+        <small><%= article.created_at.strftime("%b %d, %Y") %></small>
+      </td>
+      <td>
          <%= link_to truncate(article.title), article_path(article) %>
       </td>
       <td>

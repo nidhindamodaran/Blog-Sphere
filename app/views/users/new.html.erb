@@ -1,6 +1,4 @@
-
-<h1>Sign Up</h1>
-
+<div class = "col-sm-6 col-sm-offset-4">
 <%= form_for @user,:html => {:multipart => true}  do |f| %>
   <% if @user.errors.any? %>
     <div class="alert alert-info">
@@ -23,12 +21,8 @@
   <p>
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, class: "form-control", placeholder: "**********"%>
-  </p>
-  <p>
-    <%= f.file_field :profiledp %>
-  </p>
-  <p>
     <%= f.submit :submit, value:"SignUp", class: "btn btn-success" %>
   </p>
 
 <% end %>
+</div>
