@@ -11,7 +11,9 @@
         <img src="../<%= @user.profiledp %>" class= "img-circle" alt="<%= @user.name %>" width="250" height="250">
       <% end %>
       <center>
-        <%= link_to  '<i class="glyphicon glyphicon-pencil"></i>Edit Profile'.html_safe, edit_user_path(@user), class: "btn btn-primary btn-block"  %>
+        <% if @user.id == current_user.id %>
+          <%= link_to  '<i class="glyphicon glyphicon-pencil"></i>Edit Profile'.html_safe, edit_user_path(@user), class: "btn btn-primary btn-block"  %>
+        <% end %>
       </center>
     </div>
     <div class="col-sm-8">
