@@ -286,7 +286,7 @@ th {
 .glyphicon-asterisk:before {
   content: "\2a";
 }
-.glyphicon-plus:before {
+.glyphicon-plus:before {@font-face
   content: "\2b";
 }
 .glyphicon-euro:before,

@@ -1,1 +1,36 @@
-<%= @user.inspect %>
+
+<div class="row">
+  <div class="col-sm-12">
+    <center><h1>Profile</h1></center>
+  </div>
+  <div class="col-sm-12 profile">
+    <div class="col-sm-4">
+      <% if @user.profiledp == nil %>
+        <img src="../andrew.png" class="img-circle" alt="Cinque Terre" width="250" height="250">
+      <% else %>
+        <img src="../<%= @user.profiledp %>" class= "img-circle" alt="<%= @user.name %>" width="250" height="250">
+      <% end %>
+    </div>
+    <div class="col-sm-8">
+      <table class = "table prof">
+        <tr><td class="labl">Email : </td><td><%= @user.email %></td></tr>
+        <tr><td class ="labl">Name : </td><td><%= @user.name %></td></tr>
+        <tr><td class ="labl">Mobile : </td><td><%= @user.mob %></td></tr>
+        <tr><td class ="labl">Age : </td><td><%= @user.age %></td></tr>
+        <tr> <td class ="labl">Total articles :</td><td><%= @articles.count %></td></tr>
+        <tr> <td class ="labl">Articles : </td>
+              <td>
+                <% @articles.each do |article| %>
+                  <%= link_to truncate(article.title), article_path(article.id) %><br />
+                <% end %>
+              </td>
+        </tr>
+      </table>
+
+    </div>
+
+  </div>
+
+
+
+</div>

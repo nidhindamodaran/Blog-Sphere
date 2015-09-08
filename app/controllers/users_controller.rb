@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @articles = @user.articles.last(5)
   end
   def index
     if current_user
