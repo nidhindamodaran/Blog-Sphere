@@ -56,8 +56,15 @@ textarea.form-control {
 .labl{
   font-weight: bold;
   color: #949494;
-
+  margin-top: 10px;
+}
+label{
+  margin-top: 15px;
 }
 .vote{
   float: right;
+}
+
+.col-sm-4.profile_contents{
+  align-content: center;
 }

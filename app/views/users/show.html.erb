@@ -4,12 +4,15 @@
     <center><h1>Profile</h1></center>
   </div>
   <div class="col-sm-12 profile">
-    <div class="col-sm-4">
+    <div class="col-sm-4 profile_contents">
       <% if @user.profiledp == nil %>
         <img src="../andrew.png" class="img-circle" alt="Cinque Terre" width="250" height="250">
       <% else %>
         <img src="../<%= @user.profiledp %>" class= "img-circle" alt="<%= @user.name %>" width="250" height="250">
       <% end %>
+      <center>
+        <%= link_to  '<i class="glyphicon glyphicon-pencil"></i>Edit Profile'.html_safe, edit_user_path(@user), class: "btn btn-primary btn-block"  %>
+      </center>
     </div>
     <div class="col-sm-8">
       <table class = "table prof">
