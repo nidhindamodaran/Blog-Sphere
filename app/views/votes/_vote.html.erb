@@ -1,0 +1,6 @@
+<%= form_for ([vote.article, vote]), :html => {:method => :delete} do |f| %>
+    <%= button_tag(type: 'submit', class: "btn btn-like") do %>
+      <%= @article.votes.count %>
+      <span class="glyphicon glyphicon-thumbs-down">&nbsp;Unlike</span>
+      <% end %>
+<% end %>

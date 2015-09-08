@@ -36,6 +36,14 @@ textarea.form-control {
   float: right;
   margin-left: 10px;
 }
+.btn.btn-like{
+  background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
 .tbl-list{
   font-size: 20px;
 }
@@ -49,4 +57,7 @@ textarea.form-control {
   font-weight: bold;
   color: #949494;
 
+}
+.vote{
+  float: right;
 }

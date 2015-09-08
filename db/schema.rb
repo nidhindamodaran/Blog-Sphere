@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908045111) do
+ActiveRecord::Schema.define(version: 20150908061956) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20150908045111) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "upvote"
+    t.integer  "downvote"
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"
@@ -44,5 +46,15 @@ ActiveRecord::Schema.define(version: 20150908045111) do
     t.string   "mob"
     t.string   "age"
   end
+
+  create_table "votes", force: :cascade do |t|
+    t.string   "voter"
+    t.integer  "vote"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "votes", ["article_id"], name: "index_votes_on_article_id"
 
 end

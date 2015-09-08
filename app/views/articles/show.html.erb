@@ -4,6 +4,25 @@
 <div class = "well">
   <%= @article.text %>
 </div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-8">
+      <div class= "vote">
+        <% unless @voted %>
+                <%= form_for ([@article, @article.votes.build]) do |f| %>
+                    <%= button_tag(type: 'submit', class: "btn btn-like") do %>
+                      <%= @article.votes.count %>
+                      <span class="glyphicon glyphicon-thumbs-up">&nbsp;like</span>
+                      <% end %>
+                <% end %>
+        <% else %>
+            <%= render @article.votes.find_by_voter(current_user.id) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 <h2><u>Comments </u></h2>
 <div class = "well">
 

@@ -5,6 +5,13 @@ class ArticlesController < ApplicationController
       @user = User.find(current_user.id)
       #@article = @user.articles.find(params[:id])
       @article = Article.find(params[:id])
+      @vote = @article.votes.find_by_voter(current_user.id)
+      @voted = false
+      @article.votes.each do |vote|
+        if vote.voter.to_i == current_user.id.to_i
+          @voted = true
+        end
+      end
     else
       redirect_to log_in_path
     end
