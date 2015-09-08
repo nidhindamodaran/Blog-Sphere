@@ -12,7 +12,7 @@
       <% end %>
       <center>
         <% if @user.id == current_user.id %>
-          <%= link_to  '<i class="glyphicon glyphicon-pencil"></i>Edit Profile'.html_safe, edit_user_path(@user), class: "btn btn-primary btn-block"  %>
+          <%= link_to  '<i class="glyphicon glyphicon-pencil"></i>Edit Profile'.html_safe, edit_user_path(@user), class: "btn btn-primary btn-block profile_edit"  %>
         <% end %>
       </center>
     </div>
