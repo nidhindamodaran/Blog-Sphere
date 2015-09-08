@@ -14,15 +14,12 @@
 <% end %>
 <table >
   <tr>
-    <td><%= f.label :title %></td>
     <td><%= f.text_field :title, class: "form-control", :placeholder => "Title" %></td>
   </tr>
   <tr>
-    <td><%= f.label :text %></td>
     <td><%= f.text_area :text, class: "form-control text_area", :placeholder => "Blog", size: "50x30" %></td>
   </tr>
   <tr>
-    <td></td>
     <td><%= f.submit :submit.capitalize, :class => "btn btn-primary" %></td>
   </tr>
 </table>
