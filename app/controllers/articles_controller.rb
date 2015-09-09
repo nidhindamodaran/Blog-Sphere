@@ -65,7 +65,7 @@ class ArticlesController < ApplicationController
       @article = @user.articles.find(params[:id])
       @article.destroy
 
-      redirect_to root_path
+      redirect_to users_path
     else
       redirect_to log_in_path
     end

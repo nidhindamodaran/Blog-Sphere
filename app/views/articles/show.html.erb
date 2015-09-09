@@ -8,6 +8,9 @@
   <div class="col-sm-12">
     <div class="col-sm-4"></div>
     <div class="col-sm-8">
+      <% if current_user.id == @article.user_id %>
+        <%= link_to  '<i class="glyphicon glyphicon-pencil"></i>&nbsp;Edit'.html_safe, edit_article_path(@article), :class => "btn btn-info"  %>
+      <% end %>
       <div class= "vote">
         <% unless @voted %>
                 <%= form_for ([@article, @article.votes.build]) do |f| %>

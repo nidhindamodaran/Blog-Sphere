@@ -31,7 +31,7 @@
               <tr><td class ="labl"><%= f.label :name%></td><td><%= f.text_field :name, class: "form-control" %></td></tr>
               <tr><td class ="labl"><%= f.label :mob%></td><td><%= f.text_field :mob, class: "form-control" %></td></tr>
               <tr><td class ="labl"><%= f.label :age%></td><td><%= f.text_field :age, class: "form-control" %></td></tr>
-              <tr><td class ="labl"></td><td><%= f.submit :submit %></td></tr>
+              <tr><td class ="labl"></td><td><%= f.submit :submit, :class => "btn btn-primary ", :value => "Save" %></td></tr>
             </table>
       <% end %>
 
