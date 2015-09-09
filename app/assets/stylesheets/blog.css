@@ -97,6 +97,8 @@ body{
 .intro{
   margin-top: 300px;
   font-size: 80px;
+  border-left: thick solid black;
+  padding-left: 20px;
 }
 .welcome_links{
   width: 200px;
