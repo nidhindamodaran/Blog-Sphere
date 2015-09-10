@@ -1,5 +1,9 @@
 <p>
   <h1><%= truncate(@article.title) %></h1>
+  created by <strong><%= link_to @article.user.email, user_path(@article.user.id) %></strong>
+    <div class="info_text">
+      (Last updated on <%= @article.updated_at.strftime("%b %d, %Y") %>)
+    </div>
 </p>
 
 <!-- Displays Article Here -->
@@ -33,14 +37,13 @@
     </div>
   </div>
 </div>
-<h2><u>Comments </u></h2>
+
 <div class = "well">
 
+  <h4><%=pluralize(@article.comments.count, 'comment') %> </h4>
   <ul class="list-group">
-      <%= render @article.comments %>
+      <%= render @article.comments.reverse %>
   </ul>
-
-  <h2>Add Comments: </h2>
   <%= render 'comments/form' %>
 </div>
 

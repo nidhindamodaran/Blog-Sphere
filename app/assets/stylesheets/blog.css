@@ -113,5 +113,11 @@ body{
 }
 
 .well.article{
-  white-space: pre-line
+  white-space: pre-line;
+}
+.info_text{
+  color: #858585;
+}
+.well{
+  margin:20px;
 }
