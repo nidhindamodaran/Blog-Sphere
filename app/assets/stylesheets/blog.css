@@ -99,9 +99,19 @@ body{
   font-size: 80px;
   border-left: thick solid black;
   padding-left: 20px;
+  color : #102950;
 }
 .welcome_links{
   width: 200px;
   margin-top: 375px;
   float: right;
+}
+.btn-link {
+    font-weight: 400;
+    color: #102950;
+    border-radius: 0;
+}
+
+.well.article{
+  white-space: pre-line
 }

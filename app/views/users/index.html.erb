@@ -8,19 +8,14 @@
          <%= link_to truncate(article.title), article_path(article) %>
       </td>
       <td>
-        <% if current_user.id == article.user_id %>
+        <% if current_user.id == article.user_id || admin? %>
           <%= link_to  '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_article_path(article)  %>
         <% end %>
       </td>
       <td>
-        <% if current_user.id == article.user_id %>
+        <% if current_user.id == article.user_id || admin? %>
           <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, article_path(article), method: :delete, data: {confirm: "Are you sure? "} %>
         <% end %>
-      </td>
-      <td>
-          <% if admin? %>
-              <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, article_path(article), method: :delete, data: {confirm: "Are you sure? "} %>
-          <% end %>
       </td>
       <td>
         <% if admin? %>

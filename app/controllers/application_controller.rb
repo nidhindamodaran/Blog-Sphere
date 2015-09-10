@@ -12,4 +12,12 @@ class ApplicationController < ActionController::Base
   def admin?
     return true if current_user.email == "admin@spherebyte.in"
   end
+
+  def login_required
+    redirect_to new_session_path unless current_user
+  end
+
+  def find_article
+    @article = Article.find(params[:article_id])
+  end
 end

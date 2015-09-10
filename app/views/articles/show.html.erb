@@ -1,9 +1,14 @@
 <p>
   <h1><%= truncate(@article.title) %></h1>
 </p>
-  <pre>
+
+<!-- Displays Article Here -->
+
+  <div class="well article">
     <%= @article.text %>
-  </pre>
+  </div>
+
+  <!-------------------------->
 <div class="row">
   <div class="col-sm-12">
     <div class="col-sm-4"></div>
@@ -11,6 +16,7 @@
       <% if current_user.id == @article.user_id %>
         <%= link_to  '<i class="glyphicon glyphicon-pencil"></i>&nbsp;Edit'.html_safe, edit_article_path(@article), :class => "btn btn-info"  %>
       <% end %>
+      <!-- Votting for Blogs -->
       <div class= "vote">
         <% unless @voted %>
                 <%= form_for ([@article, @article.votes.build]) do |f| %>
@@ -23,6 +29,7 @@
             <%= render @article.votes.find_by_voter(current_user.id) %>
         <% end %>
       </div>
+      <!---------------------------------->
     </div>
   </div>
 </div>
