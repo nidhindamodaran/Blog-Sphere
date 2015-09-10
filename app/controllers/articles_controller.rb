@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
   before_filter :login_required
-  before_filter :find_current_user
-  
+
   def show
     @article = Article.find(params[:id])
     @vote = @article.votes.find_by_voter(current_user.id)
@@ -14,15 +13,15 @@ class ArticlesController < ApplicationController
   end
 
   def new
-      @article = @user.articles.new
+      @article = current_user.articles.new
   end
 
   def edit
-      @article = @user.articles.find(params[:id])
+      @article = @current_user.articles.find(params[:id])
   end
 
   def create
-    @article = @user.articles.new(article_params)
+    @article = current_user.articles.new(article_params)
     @article.user_id = current_user.id
     if @article.save
       redirect_to @article
@@ -32,7 +31,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-      @article = @user.articles.find(params[:id])
+      @article = current_user.articles.find(params[:id])
       if @article.update(article_params)
         redirect_to @article
       else
@@ -41,7 +40,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-      @article = @user.articles.find(params[:id])
+      @article = current_user.articles.find(params[:id])
       @article.destroy
 
       redirect_to users_path
@@ -51,9 +50,5 @@ class ArticlesController < ApplicationController
   private
   def article_params
     params.require(:article).permit(:title, :text)
-  end
-
-  def find_current_user
-    @user = User.find(current_user.id)
   end
 end
